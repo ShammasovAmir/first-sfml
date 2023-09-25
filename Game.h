@@ -24,18 +24,21 @@ private:
     // Variables
     // Window
     sf::RenderWindow* window;
-    sf::VideoMode videoMode;
-    sf::Event event;
+    sf::VideoMode     videoMode;
+    sf::Event         event;
 
     // Mouse Positions
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
 
     // Game logic
-    int points;
-    float enemySpawnTimer;
-    float enemySpawnTimerMax;
-    int maxEnemies;
+    bool     endGame;
+    unsigned points;
+    int      health;
+    float    enemySpawnTimer;
+    float    enemySpawnTimerMax;
+    int      maxEnemies;
+    bool     mouseHeld;
 
     // Game objects
     std::vector<sf::RectangleShape> enemies;
@@ -53,7 +56,8 @@ public:
     virtual ~Game();
 
     // Accessors
-    [[nodiscard]] bool running() const;
+    bool running() const;
+    bool getEndGame() const;
 
     // Functions
     void spawnEnemy();
